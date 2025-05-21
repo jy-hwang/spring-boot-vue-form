@@ -1,5 +1,8 @@
 <script setup>
 import formService from '@/services/formService'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 
 import { reactive } from 'vue'
 
@@ -11,6 +14,8 @@ const state = reactive({
   state.forms = await formService.readAll()
 })()
 
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 function formatDate(dateStr) {
   return dayjs(dateStr).tz('Asia/Seoul').format('YYYY-MM-DD HH:mm:ss')
