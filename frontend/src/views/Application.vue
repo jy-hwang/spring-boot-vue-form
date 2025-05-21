@@ -13,6 +13,7 @@
             class="form-control"
             id="writerName"
             v-model="state.inputs.writerName"
+            required
           />
         </div>
       </div>
@@ -77,6 +78,7 @@
             rows="10"
             cols="40"
             v-model="state.inputs.content"
+            required
           ></textarea>
         </div>
       </div>
@@ -92,6 +94,14 @@ import applicationService from '@/services/applicationService'
 import formService from '@/services/formService'
 import { reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+
+function emptyAndFocus(elementId) {
+  const el = document.getElementById(elementId)
+  if (el) {
+    el.value = ''
+    el.focus()
+  }
+}
 
 const state = reactive({
   form: {
@@ -111,6 +121,18 @@ const state = reactive({
 const router = useRouter()
 
 const submit = async () => {
+  if (!state.inputs.writerName.trim()) {
+    window.alert('작성자명을 입력해주세요')
+    emptyAndFocus('writerName')
+    return
+  }
+
+  if (!state.inputs.content.trim()) {
+    window.alert('내용을 입력해주세요')
+    emptyAndFocus('content')
+    return
+  }
+
   const output = await applicationService.save(state.inputs)
 
   if (output) {
