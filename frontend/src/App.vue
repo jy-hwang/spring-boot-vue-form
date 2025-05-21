@@ -3,7 +3,9 @@
 <template>
   <header>
     <div class="container">
-      <h1>신청서 애플리케이션</h1>
+      <h1>
+        <router-link to="/">신청서 애플리케이션</router-link>
+      </h1>
     </div>
   </header>
   <main>
@@ -24,7 +26,15 @@ header {
 
   h1 {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 500;
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        font-weight: 700;
+      }
+    }
   }
 }
 
