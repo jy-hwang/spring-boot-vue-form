@@ -14,6 +14,6 @@ public class BaseApplicationService implements ApplicationService {
   @Override
   public void save(ApplicationRequest applicationRequest) {
     // dto -> entity
-    applicationRepository.save(null);
+    applicationRepository.save(applicationRequest.toEntity());
   }
 }

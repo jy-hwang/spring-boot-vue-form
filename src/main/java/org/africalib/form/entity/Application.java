@@ -1,6 +1,9 @@
 package org.africalib.form.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -8,6 +11,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "applications")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 // 개별 신청서
 public class Application {
 

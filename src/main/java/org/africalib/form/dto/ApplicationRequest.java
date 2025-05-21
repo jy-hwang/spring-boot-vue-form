@@ -17,6 +17,12 @@ public class ApplicationRequest {
   private Integer ageRange;
 
   public Application toEntity() {
-    return null;
+    return Application.builder()
+        .writerName(this.writerName)
+        .content(this.content)
+        .gender(this.gender)
+        .ageRange(this.ageRange)
+        .build();
+
   }
 }

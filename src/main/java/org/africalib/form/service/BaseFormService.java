@@ -24,7 +24,9 @@ public class BaseFormService implements FormService {
 
     for( Form form : forms ) {
       // entity -> dto
+      output.add(form.toRead());
     }
+    // stream 을 사용해서 변경해보기
 
     return output;
   }

@@ -1,6 +1,7 @@
 package org.africalib.form.entity;
 
 import jakarta.persistence.*;
+import org.africalib.form.dto.FormRead;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -29,4 +30,14 @@ public class Form {
   @Column(nullable = false)
   private LocalDateTime updatedAt;
 
+  public FormRead toRead() {
+    FormRead formRead = new FormRead();
+
+    formRead.setId(this.id);
+    formRead.setTitle(this.title);
+    formRead.setDescription(this.description);
+    formRead.setCreatedAt(this.createdAt);
+
+    return formRead;
+  }
 }
