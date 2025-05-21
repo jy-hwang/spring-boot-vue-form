@@ -38,12 +38,8 @@ header {
   }
 }
 
-main {
-  padding: 30px 0;
-}
-
 footer {
-  padding-top: 30px;
+  padding: 30px 0;
   margin-top: 30px;
   border-top: 1px solid #ddd;
 }
