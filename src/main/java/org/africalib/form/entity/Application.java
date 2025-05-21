@@ -21,6 +21,9 @@ public class Application {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(updatable = false)
+  private Long parentFormId; // 부모 신청서양식 ID
+
   @Column(nullable = false, length = 50)
   private String writerName;
 
@@ -38,7 +41,6 @@ public class Application {
   private LocalDateTime createdAt;
 
   @UpdateTimestamp
-  @Column(nullable = false)
   private LocalDateTime updatedAt;
 
 }

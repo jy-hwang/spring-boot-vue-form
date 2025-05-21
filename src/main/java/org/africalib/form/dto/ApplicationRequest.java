@@ -8,6 +8,8 @@ import org.africalib.form.entity.Application;
 @Setter
 public class ApplicationRequest {
 
+  private Long parentFormId;
+
   private String writerName;
 
   private String content;
@@ -17,12 +19,14 @@ public class ApplicationRequest {
   private Integer ageRange;
 
   public Application toEntity() {
+
     return Application.builder()
+        .parentFormId(this.parentFormId)
         .writerName(this.writerName)
         .content(this.content)
         .gender(this.gender)
         .ageRange(this.ageRange)
         .build();
-
   }
+
 }

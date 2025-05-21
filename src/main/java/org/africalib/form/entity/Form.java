@@ -27,7 +27,6 @@ public class Form {
   private LocalDateTime createdAt;
 
   @UpdateTimestamp
-  @Column(nullable = false)
   private LocalDateTime updatedAt;
 
   public FormRead toRead() {
